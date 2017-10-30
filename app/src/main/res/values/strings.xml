@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">Petagram</string>
     <string name="nombre">Nombre</string>
-    <string name="action_settings">settings</string>
+    <string name="nombrePerfil">Mi Mascota</string>
+    <string name="cantRate">0</string>
+    <string name="action_contacto">Contacto</string>
+    <string name="action_acerca">Acerca De</string>
     <string name="action_favorite">favorite</string>
+    <string name="btnEnviar">Enviar Comentario</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="email">Email</string>
+    <string name="acerca_de">Info Desarrollador - Andres Torrico</string>
+    <string name="user_mail">email</string>
+    <string name="user_pass">pass</string>
+    <string name="err_email_faltante">Coloque su email y pass en strings.xml</string>
+    <string name="succ_email_enviado">Email enviado exitosamente!</string>
+    <string name="err_email_failed_send">Email failed to send.</string>
+    <string name="enviando_email">Enviando email...</string>
 </resources>

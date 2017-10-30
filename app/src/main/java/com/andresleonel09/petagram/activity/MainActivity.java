@@ -1,24 +1,29 @@
-package com.andresleonel09.petagram;
+package com.andresleonel09.petagram.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.andresleonel09.petagram.R;
+import com.andresleonel09.petagram.adapter.PageAdapter;
+import com.andresleonel09.petagram.fragment.PerfilFragment;
+import com.andresleonel09.petagram.fragment.MascotasFragment;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Mascota> mascotas;
-    private RecyclerView listaMascotas;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,33 +39,29 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
-
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        listaMascotas.setLayoutManager(llm);
-
-        inicializarListaMascotas();
-        inicializarAdaptador();
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        setUpViewPager();
     }
 
-    private void inicializarAdaptador() {
-        MascotaAdapter mAdapter = new MascotaAdapter(mascotas);
-        listaMascotas.setAdapter(mAdapter);
+    private ArrayList<Fragment> addFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+
+        fragments.add(new MascotasFragment());
+        fragments.add(new PerfilFragment());
+
+        return fragments;
     }
+    private void setUpViewPager() {
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), addFragments()));
+        tabLayout.setupWithViewPager(viewPager);
 
-    private void inicializarListaMascotas() {
-        mascotas = new ArrayList<>();
-
-        mascotas.add(new Mascota(R.drawable.perro,"perro"));
-        mascotas.add(new Mascota(R.drawable.buho,"buho"));
-        mascotas.add(new Mascota(R.drawable.gallina,"gallina"));
-        mascotas.add(new Mascota(R.drawable.loro,"loro"));
-        mascotas.add(new Mascota(R.drawable.pez,"pez"));
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_pets);
     }
 
     private void setToolbar() {
-        Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
+        Toolbar miActionBar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(miActionBar);
     }
 
@@ -75,11 +76,16 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_favorite:
-                Intent i = new Intent(this, FavoritosActivity.class);
-                startActivity(i);
+                Intent iFav = new Intent(this, FavoritosActivity.class);
+                startActivity(iFav);
                 return true;
-            case R.id.action_settings:
-                showSnackBar("Se abren los ajustes");
+            case R.id.action_contacto:
+                Intent iContacto = new Intent(this, ContactoActivity.class);
+                startActivity(iContacto);
+                return true;
+            case R.id.action_acerca:
+                Intent iAcerca = new Intent(this, AcercaDeActivity.class);
+                startActivity(iAcerca);
                 return true;
         }
 

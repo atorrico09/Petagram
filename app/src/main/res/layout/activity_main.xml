@@ -2,20 +2,24 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.andresleonel09.petagram.MainActivity">
+    tools:context="com.andresleonel09.petagram.activity.MainActivity">
 
-    <include android:id="@+id/miActionBar"
+    <include
+        android:id="@+id/miActionBar"
         layout="@layout/action_bar">
     </include>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvMascotas"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/recycler_actionBar_margin"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    </android.support.v4.view.ViewPager>
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

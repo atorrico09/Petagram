@@ -1,4 +1,4 @@
-package com.andresleonel09.petagram;
+package com.andresleonel09.petagram.model;
 
 /**
  * Created by Andres-PC on 2017-10-08.
@@ -7,10 +7,16 @@ package com.andresleonel09.petagram;
 public class Mascota {
     private String nombre;
     private int foto;
+    private int likes;
 
-    public Mascota(int foto, String nombre) {
+    public Mascota(int foto, String nombre, int likes) {
         this.foto = foto;
         this.nombre = nombre;
+        this.likes = likes;
+    }
+    public Mascota(int foto, int likes) {
+        this.foto = foto;
+        this.likes = likes;
     }
 
     public String getNombre() {
@@ -28,4 +34,13 @@ public class Mascota {
     public void setFoto(int foto) {
         this.foto = foto;
     }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
 }

@@ -7,4 +7,7 @@
     <dimen name="elevation_action_bar">4dp</dimen>
     <dimen name="margenes_fab">16dp</dimen>
     <dimen name="recycler_actionBar_margin">55dp</dimen>
+    <dimen name="text_acerca_de">20sp</dimen>
+    <dimen name="text_nombre_perfil">20sp</dimen>
+
 </resources>

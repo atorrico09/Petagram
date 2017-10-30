@@ -1,4 +1,4 @@
-package com.andresleonel09.petagram;
+package com.andresleonel09.petagram.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andresleonel09.petagram.model.Mascota;
+import com.andresleonel09.petagram.R;
+
 import java.util.ArrayList;
 
 /**
@@ -17,7 +20,7 @@ import java.util.ArrayList;
 
 public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaViewHolder> {
 
-    ArrayList<Mascota> mascotas;
+    private ArrayList<Mascota> mascotas;
 
     public MascotaAdapter(ArrayList<Mascota> mascotas) {
         this.mascotas = mascotas;
@@ -37,13 +40,14 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
         holder.tvNombreCV.setText(mascota.getNombre());
         holder.imgFoto.setImageResource(mascota.getFoto());
 
-        holder.btnRate.setOnClickListener(new View.OnClickListener() {
+        holder.btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext().getApplicationContext(), "Diste LIKE a "+ mascota.getNombre(),
                         Toast.LENGTH_SHORT).show();
             }
         });
+        holder.tvRate.setText(String.valueOf(mascota.getLikes()));
     }
 
     @Override
@@ -55,6 +59,8 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
 
         private ImageView imgFoto;
         private TextView tvNombreCV;
+        private TextView tvRate;
+        private ImageButton btnLike;
         private ImageButton btnRate;
 
         public MascotaViewHolder(View itemView) {
@@ -62,6 +68,8 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
 
             imgFoto = (ImageView) itemView.findViewById(R.id.imgFoto);
             tvNombreCV = (TextView) itemView.findViewById(R.id.tvNombre);
+            tvRate = (TextView) itemView.findViewById(R.id.tvRate);
+            btnLike = (ImageButton) itemView.findViewById(R.id.btnLike);
             btnRate = (ImageButton) itemView.findViewById(R.id.btnRate);
         }
     }
