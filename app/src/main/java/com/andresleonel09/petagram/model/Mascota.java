@@ -5,6 +5,7 @@ package com.andresleonel09.petagram.model;
  */
 
 public class Mascota {
+    private int id;
     private String nombre;
     private int foto;
     private int likes;
@@ -17,6 +18,9 @@ public class Mascota {
     public Mascota(int foto, int likes) {
         this.foto = foto;
         this.likes = likes;
+    }
+
+    public Mascota() {
     }
 
     public String getNombre() {
@@ -43,4 +47,11 @@ public class Mascota {
         this.likes = likes;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

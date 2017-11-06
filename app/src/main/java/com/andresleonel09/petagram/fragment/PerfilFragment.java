@@ -3,14 +3,12 @@ package com.andresleonel09.petagram.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.andresleonel09.petagram.R;
-import com.andresleonel09.petagram.adapter.MascotaAdapter;
 import com.andresleonel09.petagram.adapter.PerfilAdapter;
 import com.andresleonel09.petagram.model.Mascota;
 
