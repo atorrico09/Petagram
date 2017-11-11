@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andresleonel09.petagram.db.InteractorMascotas;
 import com.andresleonel09.petagram.model.Mascota;
 import com.andresleonel09.petagram.R;
 
@@ -34,7 +35,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
     }
 
     @Override
-    public void onBindViewHolder(MascotaViewHolder holder, int position) {
+    public void onBindViewHolder(final MascotaViewHolder holder, int position) {
         final Mascota mascota = mascotas.get(position);
 
         holder.tvNombreCV.setText(mascota.getNombre());
@@ -45,6 +46,11 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
             public void onClick(View v) {
                 Toast.makeText(v.getContext().getApplicationContext(), "Diste LIKE a "+ mascota.getNombre(),
                         Toast.LENGTH_SHORT).show();
+
+                InteractorMascotas interactorMascotas = new InteractorMascotas(v.getContext().getApplicationContext());
+                interactorMascotas.darLikeMascota(mascota);
+
+                holder.tvRate.setText(interactorMascotas.obtenerLikesMascota(mascota));
             }
         });
         holder.tvRate.setText(String.valueOf(mascota.getLikes()));

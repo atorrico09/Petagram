@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 
 public class InteractorMascotas {
+    private static final Integer LIKE = 1;
     Context context;
 
     public InteractorMascotas(Context context) {
@@ -23,17 +24,6 @@ public class InteractorMascotas {
         BaseDeDatos db = new BaseDeDatos(context);
         insertarCincoMascotas(db);
         return db.obtenerTodasLasMascotas();
-/*
-        ArrayList<Mascota> mascotas = new ArrayList<>();
-
-        mascotas.add(new Mascota(R.drawable.perro,"perro",1));
-        mascotas.add(new Mascota(R.drawable.buho,"buho",2));
-        mascotas.add(new Mascota(R.drawable.gallina,"gallina",6));
-        mascotas.add(new Mascota(R.drawable.loro,"loro",5));
-        mascotas.add(new Mascota(R.drawable.pez,"pez",9));
-
-        return mascotas;
-*/
     }
 
     public void insertarCincoMascotas(BaseDeDatos db){
@@ -66,5 +56,18 @@ public class InteractorMascotas {
         contentValues.put(ConstantesBD.TABLE_MASCOTAS_FOTO, R.drawable.pez);
         contentValues.put(ConstantesBD.TABLE_MASCOTAS_LIKES, 9);
         db.insertarMascota(contentValues);
+    }
+
+    public void darLikeMascota (Mascota mascota){
+        BaseDeDatos db = new BaseDeDatos(context);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ConstantesBD.TABLE_LIKES_MASCOTA_ID_MASCOTA, mascota.getId());
+        contentValues.put(ConstantesBD.TABLE_LIKES_MASCOTA_CANT, LIKE);
+        db.insertarLikesMascota(contentValues);
+    }
+
+    public int obtenerLikesMascota (Mascota mascota){
+        BaseDeDatos db = new BaseDeDatos(context);
+        return db.obtenerLikesMascotas(mascota);
     }
 }
