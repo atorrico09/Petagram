@@ -31,7 +31,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                                           ConstantesBD.TABLE_MASCOTAS_FOTO + " INTEGER, " +
                                           ConstantesBD.TABLE_MASCOTAS_LIKES + " INTEGER " +
                                          ")";
-        String queryCreateTableLikesMascota = "CREATE TABLE " + ConstantesBD.TABLE_MASCOTAS_LIKES + "(" +
+        String queryCreateTableLikesMascota = "CREATE TABLE " + ConstantesBD.TABLE_LIKES_MASCOTA + "(" +
                                                ConstantesBD.TABLE_MASCOTAS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                                ConstantesBD.TABLE_LIKES_MASCOTA_ID_MASCOTA + " INTEGER, " +
                                                ConstantesBD.TABLE_LIKES_MASCOTA_CANT + " INTEGER, " +

@@ -17,6 +17,6 @@ public final class ConstantesBD {
     public static final String TABLE_LIKES_MASCOTA             = "mascota_likes";
     public static final String TABLE_LIKES_MASCOTA_ID          = "id";
     public static final String TABLE_LIKES_MASCOTA_CANT        = "cant_likes";
-    public static final String TABLE_LIKES_MASCOTA_ID_MASCOTA  = "id_masc";
+    public static final String TABLE_LIKES_MASCOTA_ID_MASCOTA  = "id_mascota";
 
 }

@@ -50,7 +50,7 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
                 InteractorMascotas interactorMascotas = new InteractorMascotas(v.getContext().getApplicationContext());
                 interactorMascotas.darLikeMascota(mascota);
 
-                holder.tvRate.setText(interactorMascotas.obtenerLikesMascota(mascota));
+                holder.tvRate.setText(String.valueOf(interactorMascotas.obtenerLikesMascota(mascota)));
             }
         });
         holder.tvRate.setText(String.valueOf(mascota.getLikes()));

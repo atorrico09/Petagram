@@ -10,7 +10,7 @@
     </include>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvMascotas"
+        android:id="@+id/rvMascotasFav"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

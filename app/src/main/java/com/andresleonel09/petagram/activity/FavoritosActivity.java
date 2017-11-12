@@ -23,7 +23,7 @@ public class FavoritosActivity extends AppCompatActivity {
         setToolbar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
+        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotasFav);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
